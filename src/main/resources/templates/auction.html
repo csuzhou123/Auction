@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>加价界面</title>
+</head>
+<body>
+
+<form action="/goods/auction" method="post">
+    <td style="background: #eee0c5 no-repeat;">
+        <input type="text"  name="goodsId" id="goodsId" placeholder="goodsId" readonly="readonly" th:value ="${goodsId}"/>
+    </td>
+    <td style="background: #eee0c5 no-repeat;">
+        <input type="newPrice"  name="newPrice" placeholder="newPrice" />
+    </td>
+    <td style="background: #eee0c5 no-repeat;">
+        <input type="submit"  name="auction" value="auction" />
+    </td>
+</form>
+
+</body>
+</html>

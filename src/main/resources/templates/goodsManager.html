@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拍卖品管理界面</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>GOODS ID</th>
+        <th>ROOMID</th>
+        <th>INTRODUCTION</th>
+        <th>ORLPRICE</th>
+        <th>NEWPRICE</th>
+        <th>DATE</th>
+        <th>ISSTART</th>
+        <th>ISEND</th>
+    </tr>
+    <tr th:each="goods : ${goodsList}">
+        <td>
+            <th:block th:text="${goods.goodsId}" />
+        </td>
+        <td>  <th:block th:text="${goods.roomId}" />
+        </td>
+        <td>  <th:block th:text="${goods.introduction}" />
+        </td>
+        <td>  <th:block th:text="${goods.orlPrice}" />
+        </td>
+        <td>  <th:block th:text="${goods.newPrice}" />
+        </td>
+        <td>  <th:block th:text="${goods.date}" />
+        </td>
+        <td>  <th:block th:text="${goods.isStart}" />
+        </td>
+        <td>  <th:block th:text="${goods.isEnd}" />
+        </td>
+        <td><a th:href="${'/goods/startAuction?goodsId='}+${goods.goodsId}">
+                <text>开启商品的竞拍</text></a>
+        </td>
+        <td><a th:href="${'/goods/closeAuction?goodsId='}+${goods.goodsId}">
+            <text>结束商品的竞拍</text></a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

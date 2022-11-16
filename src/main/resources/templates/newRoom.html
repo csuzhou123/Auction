@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>开启新的拍卖场</title>
+</head>
+<body>
+
+<form action="/room/newRoom" method="post">
+    <table>
+        <tr>
+            <td style="background: #eee0c5 no-repeat;">Address:</td>
+            <td><input type="text"  name="address" id = "address">
+            </td>
+        </tr>
+
+        <tr>
+            <td style="background: #eee0c5 no-repeat;">Auctioneer:</td>
+            <td><input type="auctioneer"  id="auctioneer" name="auctioneer"></td>
+        </tr>
+
+        <tr>
+            <td style="background: #eee0c5 no-repeat;">isStart</td>
+            <td><input type="text"  name="isStart"></td>
+        </tr>
+    </table>
+    <input type="submit" name="newRoom" value="Save Infor"/>
+</form>
+</body>
+</html>

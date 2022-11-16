@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>拍卖场</title>
+</head>
+<body>
+<table>
+    <tr>
+        <th>ROOM ID</th>
+        <th>AUCTIONEER</th>
+        <th>ADDRESS</th>
+        <th>ISSTART</th>
+        <th>ENTER</th>
+        <th>CREATE</th>
+    </tr>
+    <tr th:each="room : ${roomList}">
+        <td>
+            <th:block th:text="${room.roomId}" />
+        </td>
+        <td>  <th:block th:text="${room.auctioneer}" />
+        </td>
+        <td>  <th:block th:text="${room.address}" />
+        </td>
+        <td>  <th:block th:text="${room.isStart}" />
+        </td>
+        <td>
+        <a th:href="${'/room/viewEnter?roomId='}+${room.roomId}">
+            <th:block th:text="进入拍卖场" />
+        </a></td>
+        <td>
+        <a th:href="${'/room/viewnewRoom?'}">
+            <th:block th:text="创建" />
+        </a></td>
+
+
+    </tr>
+</table>
+</body>
+</html>
