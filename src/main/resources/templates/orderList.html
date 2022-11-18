@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>账单列表</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <th>Order ID</th>
+        <th>Goods ID</th>
+        <th>PRICE</th>
+        <th>DATE</th>
+        <th>ISPAY</th>
+        <th>ISRECEIVE</th>
+        <th>AUCTIONEER</th>
+    </tr>
+    <tr th:each="order : ${orderList}">
+        <td>
+            <th:block th:text="${order.orderId}" />
+        </td>
+        <td>  <th:block th:text="${order.goodsId}" />
+        </td>
+        <td>  <th:block th:text="${order.price}" />
+        </td>
+        <td>  <th:block th:text="${order.date}" />
+        </td>
+        <td>  <th:block th:text="${order.isPay}" />
+        </td>
+        <td th:if="${order.isPay}">
+            已付款</td>
+        <td th:if="!${order.isPay}">
+            未付款</td>
+        <td th:if="${order.isReceive}">
+            已收货</td>
+        <td th:if="!${order.isReceive}">
+            未收货</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>订单详情</title>
+</head>
+<body>
+
+<table>
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">商品介绍:</td>
+        <td>
+            <th:block th:text="${goods.introduction}" />
+        </td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">拍卖方:</td>
+        <td id="date"> <th:block  th:text="${myOrder.auctioneerId}" /></td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">拍卖者:</td>
+        <td id="date"> <th:block  th:text="${myOrder.username}" /></td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">商品拍卖价:</td>
+        <td> <th:block th:text="${myOrder.price}" 元/></td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">订单生成时间:</td>
+        <td > <th:block  th:text="${myOrder.date}" 元/></td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">订单是否付款:</td>
+        <td th:if="${myOrder.isPay}">
+            已付款</td>
+        <td th:if="!${myOrder.isPay}">
+            未付款</td>
+    </tr>
+
+    <tr>
+        <td style="background: #eee0c5 no-repeat;">拍卖品是否已收货:</td>
+        <td th:if="${myOrder.isReceive}">
+            已收货</td>
+        <td th:if="!${myOrder.isReceive}">
+            未收货</td>
+    </tr>
+
+</table>
+
+</body>
+</html>

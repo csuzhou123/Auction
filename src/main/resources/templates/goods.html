@@ -20,12 +20,12 @@
 
     <tr>
         <td style="background: #eee0c5 no-repeat;">商品最新的价格:</td>
-        <td> <th:block th:text="${goods.newPrice}" 元/></td>
+        <td id="newPrice"> <th:block  th:text="${goods.newPrice}" 元/></td>
     </tr>
 
     <tr>
         <td style="background: #eee0c5 no-repeat;">商品最新的报价时间:</td>
-        <td> <th:block th:text="${goods.date}" /></td>
+        <td id="date"> <th:block  th:text="${goods.date}" /></td>
     </tr>
 </table>
 
@@ -64,6 +64,11 @@
                 document.getElementById("myclick").style.display="none";
             }else if(sig == "start"){
                 document.getElementById("myclick").style.display="block";
+            }else{
+                document.getElementById("newPrice").innerHTML=sig.split(" ")[0];
+                console.log(sig.split("*")[0]);
+                document.getElementById("date").innerHTML=sig.split(" ")[1];
+                console.log(sig.split("*")[1]);
             }
 
             //完成通信后关闭WebSocket连接

@@ -6,6 +6,7 @@ import com.example.auction.persistence.AccountMapper;
 import com.example.auction.persistence.RoomMapper;
 import com.example.auction.service.AccountService;
 import com.example.auction.service.GoodsService;
+import com.example.auction.service.MyOrderService;
 import com.example.auction.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,6 +33,8 @@ public class RoomController {
     RoomMapper roomMapper;
     @Autowired
     GoodsService goodsService;
+    @Autowired
+    MyOrderService myOderService;
 
     @RequestMapping("/viewnewRoom")
     public String viewnewRoom(){
@@ -85,6 +88,10 @@ public class RoomController {
         if(password.equals(room.getPassword())){
             if(accountMapper.selectById((String)session.getAttribute("username")).getType()==1){
                 goodsList = goodsService.getGoodsList(roomId);
+                for(Goods good:goodsList){
+                    boolean flag = myOderService.getorderBygoods(good.getGoodsId())==null?false:true;
+                    good.setFlag(flag);
+                }
                 model.addAttribute("goodsList", goodsList);
                 return "goodsManager.html";
             }

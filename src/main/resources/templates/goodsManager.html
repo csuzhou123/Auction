@@ -15,6 +15,8 @@
         <th>DATE</th>
         <th>ISSTART</th>
         <th>ISEND</th>
+        <th>START</th>
+        <th>END</th>
     </tr>
     <tr th:each="goods : ${goodsList}">
         <td>
@@ -39,6 +41,15 @@
         </td>
         <td><a th:href="${'/goods/closeAuction?goodsId='}+${goods.goodsId}">
             <text>结束商品的竞拍</text></a>
+        </td>
+        <td th:if="${!goods.flag}"><a th:href="${'/myOrder/genetateOrder?goodsId='}+${goods.goodsId}">
+            <text>生成订单</text></a>
+        </td>
+        <td th:if="${goods.flag}"><a th:href="${'/myOrder/payOrder?goodsId='}+${goods.goodsId}">
+            <text>订单已支付</text></a>
+        </td>
+        <td th:if="${goods.flag}"><a th:href="${'/myOrder/receiveOrder?goodsId='}+${goods.goodsId}">
+            <text>拍卖品已转交</text></a>
         </td>
     </tr>
 </table>

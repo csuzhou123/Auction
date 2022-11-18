@@ -85,6 +85,7 @@ public class GoodsController {
         String username = (String)session.getAttribute("username");
         BigDecimal newPrice = BigDecimal.valueOf(Long.parseLong(request.getParameter("newPrice")));
         goodsService.auction(request.getParameter("goodsId"),newPrice, username);
+        NoticeWebsocket.sendMessage("close");
         lock.unlock();
         Goods goods = goodsMapper.selectById(request.getParameter("goodsId"));
         model.addAttribute("goods", goods);

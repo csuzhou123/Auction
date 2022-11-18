@@ -65,6 +65,7 @@ public class GoodsService {
         goods.setDate(timeStamp);
         goods.setMaxName(maxname);
         goodsMapper.updateById(goods);
+        NoticeWebsocket.sendMessage(String.valueOf(newPrice) + "*" + String.valueOf(timeStamp));
         lock.unlock();
     }
 }

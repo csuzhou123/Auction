@@ -1,5 +1,6 @@
 package com.example.auction.domain;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -22,5 +23,6 @@ public class Goods {
     private int isStart;
     private int isEnd;
     private String maxName;
-
+    @TableField(exist = false)
+    private Boolean flag;
 }
